@@ -1,6 +1,7 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:vara_lagbe/widgets/circle_icon_button.dart';
 
 import '../../../model/house.dart';
 
@@ -32,7 +33,7 @@ class BestOffer extends StatelessWidget {
           ),
           SizedBox(height: 10),
           ...listOfOffer
-              .map((e) => Container(
+              .map((el) => Container(
                     margin: EdgeInsets.only(bottom: 10),
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
@@ -48,14 +49,40 @@ class BestOffer extends StatelessWidget {
                               height: 80,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
-                                    image: AssetImage(
-                                        recomendedList[index].imgUrl),
+                                    image: AssetImage(el.imgUrl),
                                     fit: BoxFit.cover),
                                 borderRadius: BorderRadius.circular(8),
                               ),
-                            )
+                            ),
+                            SizedBox(width: 10),
+                            Column(
+                              children: [
+                                Text(
+                                  el.name,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline1!
+                                      .copyWith(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(height: 10),
+                                Text(
+                                  el.address,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1!
+                                      .copyWith(fontSize: 12),
+                                )
+                              ],
+                            ),
                           ],
-                        )
+                        ),
+                        Positioned(
+                            child: CircleIconButton(
+                                iconUrl:
+                                    '/home/yumme/flutter-proj/vara_lagbe/assets/icons/heart.svg',
+                                color: Colors.grey))
                       ],
                     ),
                   ))

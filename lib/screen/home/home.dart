@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vara_lagbe/screen/home/widgets/best_offer.dart';
 import 'widgets/recomended_house.dart';
 import 'widgets/catagories.dart';
 import 'widgets/custom_app_bar.dart';
@@ -22,6 +23,7 @@ class HomePage extends StatelessWidget {
             SearchInput(),
             Catagories(),
             RecomendedHouse(),
+            BestOffer(),
           ],
         ),
       ),

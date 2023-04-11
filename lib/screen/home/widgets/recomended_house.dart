@@ -30,8 +30,9 @@ class RecomendedHouse extends StatelessWidget {
                       right: 15,
                       top: 15,
                       child: CircleIconButton(
-                          iconUrl: 'assets/icons/mark.svg',
-                          color: Theme.of(context).colorScheme.secondary),
+                          iconUrl:
+                              '/home/yumme/flutter-proj/vara_lagbe/assets/icons/mark.svg',
+                          color: Colors.redAccent),
                     ),
                     Positioned(
                         bottom: 0,
@@ -53,12 +54,24 @@ class RecomendedHouse extends StatelessWidget {
                                           .copyWith(
                                               fontSize: 16,
                                               fontWeight: FontWeight.bold)),
-                                  Text(recomendedList[index].address),
+                                  Text(
+                                    recomendedList[index].address,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1!
+                                        .copyWith(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
                                 ],
                               ),
                               CircleIconButton(
-                                  iconUrl: 'assets/icons/heart.svg',
-                                  color: Theme.of(context).accentColor)
+                                  iconUrl:
+                                      '/home/yumme/flutter-proj/vara_lagbe/assets/icons/mark.svg',
+                                  color: Colors.redAccent)
                             ],
                           ),
                         ))
