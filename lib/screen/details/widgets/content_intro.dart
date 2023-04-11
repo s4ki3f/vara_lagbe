@@ -12,13 +12,24 @@ class ConetentIntro extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(house.name),
-          Text(house.address),
+          Text(house.name,
+              style: Theme.of(context)
+                  .textTheme
+                  .headline1!
+                  .copyWith(fontSize: 20, fontWeight: FontWeight.bold)),
+          SizedBox(height: 5),
+          Text(house.address,
+              style: Theme.of(context)
+                  .textTheme
+                  .headline1!
+                  .copyWith(fontSize: 16)),
+          SizedBox(height: 10),
           Text('20,000sqft'),
+          SizedBox(height: 5),
           RichText(
               text: TextSpan(children: [
             TextSpan(
-                text: '\$500000',
+                text: '\$500000 ',
                 style: Theme.of(context)
                     .textTheme
                     .headline1!
