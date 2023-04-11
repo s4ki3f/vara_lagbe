@@ -23,10 +23,17 @@ class _CatagoriesState extends State<Catagories> {
           itemBuilder: (context, index) => GestureDetector(
                 onTap: () {
                   setState(() {
-                    currentSelect == index;
+                    currentSelect = index;
                   });
                 },
                 child: Container(
+                  decoration: BoxDecoration(
+                      border: Border(
+                          bottom: BorderSide(
+                              color: currentSelect == index
+                                  ? Theme.of(context).primaryColor
+                                  : Colors.transparent,
+                              width: 3))),
                   child: Text(
                     CatagoriesList[index],
                     style: TextStyle(
