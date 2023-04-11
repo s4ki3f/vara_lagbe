@@ -78,8 +78,7 @@ class BestOffer extends StatelessWidget {
                         ),
                         Positioned(
                             child: CircleIconButton(
-                                iconUrl:
-                                    '/home/yumme/flutter-proj/vara_lagbe/assets/icons/heart.svg',
+                                iconUrl: 'assets/icons/heart.svg',
                                 color: Colors.grey))
                       ],
                     ),

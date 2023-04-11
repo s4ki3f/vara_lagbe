@@ -30,8 +30,7 @@ class RecomendedHouse extends StatelessWidget {
                       right: 15,
                       top: 15,
                       child: CircleIconButton(
-                          iconUrl:
-                              '/home/yumme/flutter-proj/vara_lagbe/assets/icons/mark.svg',
+                          iconUrl: 'assets/icons/mark.svg',
                           color: Colors.redAccent),
                     ),
                     Positioned(
@@ -69,8 +68,7 @@ class RecomendedHouse extends StatelessWidget {
                                 ],
                               ),
                               CircleIconButton(
-                                  iconUrl:
-                                      '/home/yumme/flutter-proj/vara_lagbe/assets/icons/mark.svg',
+                                  iconUrl: 'assets/icons/mark.svg',
                                   color: Colors.redAccent)
                             ],
                           ),
