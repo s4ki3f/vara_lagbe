@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           backgroundColor: Color.fromARGB(255, 231, 247, 247),
           primaryColor: Color(0xFF811B83),
-          accentColor: Color(0xFFFA50019),
           textTheme: TextTheme(
               headline1: TextStyle(
                 color: Color(0xFF100E34),

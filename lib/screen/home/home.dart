@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'widgets/recomended_house.dart';
 import 'widgets/catagories.dart';
 import 'widgets/custom_app_bar.dart';
 import 'widgets/welcome_text.dart';
@@ -20,6 +21,7 @@ class HomePage extends StatelessWidget {
             WelcomeText(),
             SearchInput(),
             Catagories(),
+            RecomendedHouse(),
           ],
         ),
       ),

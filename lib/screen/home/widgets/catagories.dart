@@ -19,6 +19,7 @@ class _CatagoriesState extends State<Catagories> {
     return Container(
       height: 35,
       child: ListView.separated(
+          padding: EdgeInsets.symmetric(horizontal: 20),
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) => GestureDetector(
                 onTap: () {
@@ -27,6 +28,7 @@ class _CatagoriesState extends State<Catagories> {
                   });
                 },
                 child: Container(
+                  alignment: Alignment.center,
                   decoration: BoxDecoration(
                       border: Border(
                           bottom: BorderSide(
