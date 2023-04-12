@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vara_lagbe/screen/home/home.dart';
+import 'package:vara_lagbe/view/home/home.dart';
 
 void main() {
   runApp(MyApp());
