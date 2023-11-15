@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:vara_lagbe/model/house.dart';
 
@@ -21,17 +20,17 @@ class DetailPage extends StatelessWidget {
             DetailAppBar(
               house: house,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ConetentIntro(house: house),
-            SizedBox(height: 20),
-            HouseInfo(),
-            SizedBox(height: 20),
-            About(),
-            SizedBox(
+            const SizedBox(height: 20),
+            const HouseInfo(),
+            const SizedBox(height: 20),
+            const About(),
+            const SizedBox(
               height: 25,
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
@@ -41,8 +40,8 @@ class DetailPage extends StatelessWidget {
                 ),
                 child: Container(
                   alignment: Alignment.center,
-                  padding: EdgeInsets.symmetric(vertical: 15),
-                  child: Text(
+                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  child: const Text(
                     'Book Now!',
                     style: TextStyle(
                         color: Colors.white,

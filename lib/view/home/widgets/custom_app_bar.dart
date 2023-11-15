@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/cupertino.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const CustomAppBar({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Container(
-      padding: EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           IconButton(
             onPressed: () {},
-            icon: Icon(CupertinoIcons.equal_square),
+            icon: const Icon(CupertinoIcons.equal_square),
           ),
-          CircleAvatar(backgroundImage: AssetImage('assets/images/makima.png')),
+          const CircleAvatar(backgroundImage: AssetImage('assets/images/makima.png')),
         ],
       ),
     ));
@@ -23,5 +24,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => Size.fromHeight(50);
+  Size get preferredSize => const Size.fromHeight(50);
 }

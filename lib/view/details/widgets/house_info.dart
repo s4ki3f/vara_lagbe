@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HouseInfo extends StatelessWidget {
+  const HouseInfo({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      child: Column(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: const Column(
         children: [
           Row(
             children: [
@@ -50,11 +52,11 @@ class MenuInfo extends StatelessWidget {
         child: Row(
           children: [
             SvgPicture.asset(imgUrl),
-            SizedBox(width: 20),
+            const SizedBox(width: 20),
             Text(
               content,
               style:
-                  Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 12),
+                  Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 12),
             )
           ],
         ),
