@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vara_lagbe/view/details/widgets/post_ad.dart';
 import 'package:vara_lagbe/view/home/widgets/best_offer.dart';
 import 'widgets/custom_bottom_navbar.dart';
 import 'widgets/recomended_house.dart';
@@ -25,6 +26,7 @@ class HomePage extends StatelessWidget {
             Catagories(),
             RecomendedHouse(),
             BestOffer(),
+            PostAd()
           ],
         ),
       ),
