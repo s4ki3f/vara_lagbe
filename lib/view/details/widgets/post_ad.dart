@@ -1,20 +1,42 @@
-import 'package:flutter/material.dart';
+import 'dart:io';
 
-class PostAd extends StatefulWidget {
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+
+class PostAdPage extends StatefulWidget {
   @override
-  _PostAdState createState() => _PostAdState();
+  // ignore: library_private_types_in_public_api
+  _PostAdPageState createState() => _PostAdPageState();
 }
 
-class _PostAdState extends State<PostAd> {
-  String location = '';
-  String ownerDetail = '';
+class _PostAdPageState extends State<PostAdPage> {
+  String firstName = '';
+  String lastName = '';
+  String contactNumber = '';
   String flatDetail = '';
-  double rentPrice = 0.0;
-  bool negotiablePrice = false;
+  String location = '';
+  String flatSize = '';
+  String roomNumber = 'one';
+  String bathroomNumber = '';
+  List<String> extraFacilities = [];
+  bool isFurnished = false;
+  double rentalPrice = 0.0;
+  bool isNegotiable = false;
   double confirmedPrice = 0.0;
-  String roomNumber = 'One Room';
+  File? _image;
+  final picker = ImagePicker();
 
-  // Add your image related logic here
+  Future getImage() async {
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+    setState(() {
+      if (pickedFile != null) {
+        _image = File(pickedFile.path);
+      } else {
+        print('No image selected.');
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,108 +46,189 @@ class _PostAdState extends State<PostAd> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Text('Owner Details'),
+              SizedBox(height: 16.0),
               TextFormField(
-                decoration: InputDecoration(labelText: 'Location'),
+                decoration: InputDecoration(
+                  labelText: 'First Name',
+                ),
                 onChanged: (value) {
                   setState(() {
-                    location = value;
+                    firstName = value;
                   });
                 },
               ),
+              SizedBox(height: 16.0),
               TextFormField(
-                decoration: InputDecoration(labelText: 'Owner Detail'),
+                decoration: InputDecoration(
+                  labelText: 'Last Name',
+                ),
                 onChanged: (value) {
                   setState(() {
-                    ownerDetail = value;
+                    lastName = value;
                   });
                 },
               ),
+              SizedBox(height: 16.0),
               TextFormField(
-                decoration: InputDecoration(labelText: 'Flat Detail'),
+                decoration: InputDecoration(
+                  labelText: 'Contact Number',
+                ),
+                onChanged: (value) {
+                  setState(() {
+                    contactNumber = value;
+                  });
+                },
+              ),
+              SizedBox(height: 32.0),
+              Text('Flat Details'),
+              SizedBox(height: 16.0),
+              TextFormField(
+                decoration: InputDecoration(
+                  labelText: 'Flat Detail',
+                ),
                 onChanged: (value) {
                   setState(() {
                     flatDetail = value;
                   });
                 },
               ),
+              SizedBox(height: 16.0),
               TextFormField(
-                decoration: InputDecoration(labelText: 'Rent Price'),
-                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  labelText: 'Location',
+                ),
                 onChanged: (value) {
                   setState(() {
-                    rentPrice = double.parse(value);
+                    location = value;
                   });
                 },
               ),
-              Row(
-                children: [
-                  Checkbox(
-                    value: negotiablePrice,
-                    onChanged: (value) {
+              SizedBox(height: 16.0),
+              TextFormField(
+                decoration: InputDecoration(
+                  labelText: 'Flat Size',
+                ),
+                onChanged: (value) {
+                  setState(() {
+                    flatSize = value;
+                  });
+                },
+              ),
+              SizedBox(height: 16.0),
+              InputDecorator(
+                decoration: InputDecoration(
+                  labelText: 'Room Number',
+                ),
+                child: DropdownButtonHideUnderline(
+                  child: DropdownButton<String?>(
+                    value: roomNumber,
+                    items: <String?>[
+                      'one',
+                      'two',
+                      'three',
+                      'four or more',
+                      null
+                    ].map<DropdownMenuItem<String?>>((String? value) {
+                      return DropdownMenuItem<String?>(
+                        value: value,
+                        child: Text(value ?? 'None'),
+                      );
+                    }).toList(),
+                    onChanged: (String? newValue) {
                       setState(() {
-                        negotiablePrice = value!;
+                        roomNumber = newValue!;
                       });
                     },
                   ),
-                  Text('Negotiable Price'),
-                ],
+                ),
               ),
+              SizedBox(height: 16.0),
               TextFormField(
-                decoration: InputDecoration(labelText: 'Confirmed Price'),
-                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  labelText: 'Number of Bathrooms',
+                ),
+                onChanged: (value) {
+                  setState(() {
+                    bathroomNumber = value;
+                  });
+                },
+              ),
+              SizedBox(height: 16.0),
+              Text('Extra Facilities'),
+              SizedBox(height: 8.0),
+              CheckboxListTile(
+                title: Text('Furnished'),
+                value: isFurnished,
+                onChanged: (value) {
+                  setState(() {
+                    isFurnished = value!;
+                  });
+                },
+              ),
+              SizedBox(height: 16.0),
+              TextFormField(
+                decoration: InputDecoration(
+                  labelText: 'Rental Price',
+                ),
+                onChanged: (value) {
+                  setState(() {
+                    rentalPrice = double.parse(value);
+                  });
+                },
+              ),
+              SizedBox(height: 8.0),
+              CheckboxListTile(
+                title: Text('Negotiable Price'),
+                value: isNegotiable,
+                onChanged: (value) {
+                  setState(() {
+                    isNegotiable = value!;
+                  });
+                },
+              ),
+              SizedBox(height: 16.0),
+              TextFormField(
+                decoration: InputDecoration(
+                  labelText: 'Confirmed Price',
+                ),
                 onChanged: (value) {
                   setState(() {
                     confirmedPrice = double.parse(value);
                   });
                 },
               ),
-              DropdownButtonFormField<String>(
-                value: roomNumber,
-                items: [
-                  DropdownMenuItem(
-                    child: Text('One Room'),
-                    value: 'One Room',
+              SizedBox(height: 32.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: getImage,
+                    child: Text('Pick Image'),
                   ),
-                  DropdownMenuItem(
-                    child: Text('Two Rooms'),
-                    value: 'Two Rooms',
+                  ElevatedButton(
+                    onPressed: () {
+                      // TODO: Implement save functionality
+                    },
+                    child: Text('Save'),
                   ),
-                  DropdownMenuItem(
-                    child: Text('Three Rooms'),
-                    value: 'Three Rooms',
+                  ElevatedButton(
+                    onPressed: () {
+                      // TODO: Implement delete functionality
+                    },
+                    child: Text('Delete'),
                   ),
-                  DropdownMenuItem(
-                    child: Text('Four or More'),
-                    value: 'Four or More',
+                  ElevatedButton(
+                    onPressed: () {
+                      // TODO: Implement post functionality
+                    },
+                    child: Text('Post'),
                   ),
                 ],
-                onChanged: (value) {
-                  setState(() {
-                    roomNumber = value!;
-                  });
-                },
-              ),
-              // Add your image related UI here
-              ElevatedButton(
-                onPressed: () {
-                  // Add your save logic here
-                },
-                child: Text('Save'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  // Add your delete logic here
-                },
-                child: Text('Delete'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  // Add your post logic here
-                },
-                child: Text('Post'),
               ),
             ],
           ),

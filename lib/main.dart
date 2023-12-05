@@ -9,6 +9,20 @@ import 'package:vara_lagbe/view/sign_up/sign_up.dart'; // Import the sign_up.dar
 import 'package:vara_lagbe/view/home/home.dart';
 import 'package:provider/provider.dart'
     as provider; // Import the home.dart file
+import 'package:permission_handler/permission_handler.dart'; // Import the permission_handler package
+
+Future<void> requestPermissions() async {
+  Map<Permission, PermissionStatus> statuses = await [
+    Permission.camera,
+    Permission.storage,
+  ].request();
+
+  final info = statuses[Permission.camera]!.isGranted &&
+          statuses[Permission.storage]!.isGranted
+      ? 'All permissions granted.'
+      : 'Permissions are not granted.';
+  print(info);
+}
 
 Future<void> main() async {
   await Supabase.initialize(
@@ -16,6 +30,8 @@ Future<void> main() async {
     anonKey:
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpqdHlhenprcXF5dHN4Z3Vta3ZjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDA1NTIzODUsImV4cCI6MjAxNjEyODM4NX0.lEpVcFEe8MJ7IwvO4BaZe2j5m-61Z-Z_3Zy7RrggIi8',
   );
+
+  await requestPermissions();
 
   runApp(
     ChangeNotifierProvider(
@@ -41,7 +57,7 @@ class MyApp extends StatelessWidget {
             '/view/sign_in': (context) => SignInPage(),
             '/view/sign_up/sign_up': (context) => SignUpPage(),
             '/view/home': (context) => HomePage(),
-            '/postAd': (context) => PostAd(),
+            '/postAd': (context) => PostAdPage(),
             '/profilepage': (context) =>
                 ProfilePage() // Add route for the home page
           },
@@ -50,3 +66,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// Add the requestPermissions function
+
