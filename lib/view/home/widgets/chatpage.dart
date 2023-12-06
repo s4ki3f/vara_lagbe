@@ -10,9 +10,15 @@ class ChatPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Chat with ${user.name}'),
-        leading: CircleAvatar(
-          backgroundImage: NetworkImage(user.avatarUrl ?? ''),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
         ),
+        actions: [
+          CircleAvatar(
+            backgroundImage: NetworkImage(user.avatarUrl ?? ''),
+          ),
+        ],
       ),
       body: Column(
         children: [
