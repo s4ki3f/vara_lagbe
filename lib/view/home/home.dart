@@ -26,7 +26,6 @@ class HomePage extends StatelessWidget {
             Catagories(),
             RecomendedHouse(),
             BestOffer(),
-            PostAdPage()
           ],
         ),
       ),

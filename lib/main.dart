@@ -57,9 +57,9 @@ class MyApp extends StatelessWidget {
             '/view/sign_in': (context) => SignInPage(),
             '/view/sign_up/sign_up': (context) => SignUpPage(),
             '/view/home': (context) => HomePage(),
-            '/postAd': (context) => PostAdPage(),
-            '/profilepage': (context) =>
-                ProfilePage() // Add route for the home page
+            //'/postAd': (context) => PostAdPage(),
+            //'/profilepage': (context) =>
+            //ProfilePage() // Add route for the home page
           },
         );
       },

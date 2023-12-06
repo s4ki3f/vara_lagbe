@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:vara_lagbe/model/theme_changer.dart';
+import 'package:vara_lagbe/view/details/widgets/post_ad.dart';
 import 'package:vara_lagbe/view/profile/profile.dart';
 import 'package:vara_lagbe/view/settings/settings_screen.dart';
 
@@ -37,7 +38,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     Navigator.pushNamed(context, '/view/sign_in');
                     break;
                   case 'Post Ad':
-                    Navigator.pushNamed(context, '/postAd');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PostAdPage()),
+                    );
                     // Navigate to post ad
                     break;
                   case 'My Ads':
