@@ -12,7 +12,7 @@ class WelcomeText extends StatelessWidget {
             'Konnichiwa Mina desh',
             style: Theme.of(context)
                 .textTheme
-                .bodyText1!
+                .bodyLarge!
                 .copyWith(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 10),
@@ -20,7 +20,7 @@ class WelcomeText extends StatelessWidget {
             'Genki desuka, Hina Sama',
             style: Theme.of(context)
                 .textTheme
-                .headline1!
+                .displayLarge!
                 .copyWith(fontSize: 16, fontWeight: FontWeight.bold),
           )
         ],

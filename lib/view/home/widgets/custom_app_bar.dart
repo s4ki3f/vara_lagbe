@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:vara_lagbe/model/theme_changer.dart';
+import 'package:vara_lagbe/view/Adlist/useradlistview.dart';
 import 'package:vara_lagbe/view/details/widgets/post_ad.dart';
+import 'package:vara_lagbe/view/home/widgets/chatpage.dart';
 import 'package:vara_lagbe/view/profile/profile.dart';
 import 'package:vara_lagbe/view/settings/settings_screen.dart';
 
@@ -18,8 +19,22 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-              onPressed: () {},
-              icon: Icon(CupertinoIcons.equal_square),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChatPage(
+                      user: User(
+                        name: 'John Doe',
+                        avatarUrl: 'https://github.com/s4ki3f.png',
+                        unreadMessageCount: 5,
+                      ),
+                      users: [],
+                    ),
+                  ),
+                );
+              },
+              icon: Icon(CupertinoIcons.bubble_left_fill),
             ),
             PopupMenuButton<String>(
               child: CircleAvatar(
@@ -46,6 +61,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     break;
                   case 'My Ads':
                     // Navigate to my ads
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => UserAdListView()));
                     break;
                 }
               },
