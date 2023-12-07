@@ -3,55 +3,57 @@ import 'package:flutter/material.dart';
 import 'package:vara_lagbe/view/sign_in/sign_in.dart'; // Import the sign-in page
 
 class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
+
     @override
     Widget build(BuildContext context) {
         // Your sign-up page content
         return Scaffold(
             appBar: AppBar(
-                title: Text('Sign Up'),
+                title: const Text('Sign Up'),
             ),
             body: Center(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                        Text('Sign Up Page Content'),
-                        SizedBox(height: 20),
+                        const Text('Sign Up Page Content'),
+                        const SizedBox(height: 20),
                         TextFormField(
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                                 labelText: 'Email',
                             ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         TextFormField(
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                                 labelText: 'Password',
                             ),
                             obscureText: true,
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         ElevatedButton(
                             onPressed: () {
                                 // Perform sign-up logic here
                             },
-                            child: Text('Sign Up'),
+                            child: const Text('Sign Up'),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         ElevatedButton.icon(
                             onPressed: () {
                                 // Perform Google sign-up logic here
                             },
-                            icon: Icon(Icons.login),
-                            label: Text('Sign Up with Google'),
+                            icon: const Icon(Icons.login),
+                            label: const Text('Sign Up with Google'),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         ElevatedButton(
                             onPressed: () {
                                 Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => SignInPage()), // Navigate to the sign-in page
+                                    MaterialPageRoute(builder: (context) => const SignInPage()), // Navigate to the sign-in page
                                 );
                             },
-                            child: Text('Sign In'), // Add the sign-in button
+                            child: const Text('Sign In'), // Add the sign-in button
                         ),
                     ],
                 ),

@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vara_lagbe/model/theme_changer.dart';
-import 'package:vara_lagbe/view/details/widgets/post_ad.dart';
-import 'package:vara_lagbe/view/profile/profile.dart';
 import 'package:vara_lagbe/view/sign_in/sign_in.dart'; // Import the sign_in.dart file
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:vara_lagbe/view/sign_up/sign_up.dart'; // Import the sign_up.dart file
 import 'package:vara_lagbe/view/home/home.dart';
-import 'package:provider/provider.dart'
-    as provider; // Import the home.dart file
+// Import the home.dart file
 import 'package:permission_handler/permission_handler.dart'; // Import the permission_handler package
 
 Future<void> requestPermissions() async {
@@ -36,7 +33,7 @@ Future<void> main() async {
   runApp(
     ChangeNotifierProvider(
       create: (context) => ThemeChanger(ThemeData.light()),
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
@@ -45,6 +42,8 @@ Future<void> main() async {
 final supabase = Supabase.instance.client;
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Consumer<ThemeChanger>(
@@ -54,9 +53,9 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           initialRoute: '/view/sign_in',
           routes: {
-            '/view/sign_in': (context) => SignInPage(),
-            '/view/sign_up/sign_up': (context) => SignUpPage(),
-            '/view/home': (context) => HomePage(),
+            '/view/sign_in': (context) => const SignInPage(),
+            '/view/sign_up/sign_up': (context) => const SignUpPage(),
+            '/view/home': (context) => const HomePage(),
             //'/postAd': (context) => PostAdPage(),
             //'/profilepage': (context) =>
             //ProfilePage() // Add route for the home page

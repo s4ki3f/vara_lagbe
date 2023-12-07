@@ -6,9 +6,11 @@ import 'package:vara_lagbe/widgets/circle_icon_button.dart';
 class RecomendedHouse extends StatelessWidget {
   final recomendedList = House.generateRecomendation();
 
+  RecomendedHouse({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         height: 340,
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
@@ -22,7 +24,7 @@ class RecomendedHouse extends StatelessWidget {
                 child: Container(
                   height: 300,
                   width: 240,
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(8)),
@@ -34,7 +36,7 @@ class RecomendedHouse extends StatelessWidget {
                                 image: AssetImage(recomendedList[index].imgUrl),
                                 fit: BoxFit.cover)),
                       ),
-                      Positioned(
+                      const Positioned(
                         right: 15,
                         top: 15,
                         child: CircleIconButton(
@@ -47,7 +49,7 @@ class RecomendedHouse extends StatelessWidget {
                           right: 0,
                           child: Container(
                             color: Colors.white60,
-                            padding: EdgeInsets.all(10),
+                            padding: const EdgeInsets.all(10),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -57,7 +59,7 @@ class RecomendedHouse extends StatelessWidget {
                                     Text(recomendedList[index].name,
                                         style: Theme.of(context)
                                             .textTheme
-                                            .headline1!
+                                            .displayLarge!
                                             .copyWith(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold)),
@@ -65,17 +67,17 @@ class RecomendedHouse extends StatelessWidget {
                                       recomendedList[index].address,
                                       style: Theme.of(context)
                                           .textTheme
-                                          .bodyText1!
+                                          .bodyLarge!
                                           .copyWith(
                                               fontSize: 12,
                                               fontWeight: FontWeight.bold),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 5,
                                     ),
                                   ],
                                 ),
-                                CircleIconButton(
+                                const CircleIconButton(
                                     iconUrl: 'assets/icons/mark.svg',
                                     color: Colors.redAccent)
                               ],
@@ -85,7 +87,7 @@ class RecomendedHouse extends StatelessWidget {
                   ),
                 ),
               )),
-          separatorBuilder: (_, index) => SizedBox(width: 20),
+          separatorBuilder: (_, index) => const SizedBox(width: 20),
           itemCount: recomendedList.length,
         ));
   }

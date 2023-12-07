@@ -9,12 +9,14 @@ import 'package:vara_lagbe/view/profile/profile.dart';
 import 'package:vara_lagbe/view/settings/settings_screen.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const CustomAppBar({super.key});
+
   @override
   Widget build(BuildContext context) {
     final themeChanger = Provider.of<ThemeChanger>(context);
     return SafeArea(
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -29,15 +31,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                         avatarUrl: 'https://github.com/s4ki3f.png',
                         unreadMessageCount: 5,
                       ),
-                      users: [],
+                      users: const [],
                     ),
                   ),
                 );
               },
-              icon: Icon(CupertinoIcons.bubble_left_fill),
+              icon: const Icon(CupertinoIcons.bubble_left_fill),
             ),
             PopupMenuButton<String>(
-              child: CircleAvatar(
+              child: const CircleAvatar(
                   backgroundImage: AssetImage('assets/images/makima.png')),
               onSelected: (value) {
                 // Handle your menu choice here
@@ -45,7 +47,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   case 'Profile':
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ProfilePage()),
+                      MaterialPageRoute(builder: (context) => const ProfilePage()),
                     );
                     break;
                   case 'Logout':
@@ -55,7 +57,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   case 'Post Ad':
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => PostAdPage()),
+                      MaterialPageRoute(builder: (context) => const PostAdPage()),
                     );
                     // Navigate to post ad
                     break;
@@ -64,7 +66,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => UserAdListView()));
+                            builder: (context) => const UserAdListView()));
                     break;
                 }
               },
@@ -86,7 +88,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SettingsScreen()),
+                              builder: (context) => const SettingsScreen()),
                         );
                       },
                     ),
@@ -101,5 +103,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(56.0);
+  Size get preferredSize => const Size.fromHeight(56.0);
 }

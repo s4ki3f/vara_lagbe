@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key});
+
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
@@ -28,7 +30,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile'),
+        title: const Text('Profile'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -37,31 +39,31 @@ class _ProfilePageState extends State<ProfilePage> {
             CircleAvatar(
               backgroundImage: avatarImage != null
                   ? FileImage(avatarImage!) as ImageProvider<Object>?
-                  : AssetImage('assets/images/makima.png'),
+                  : const AssetImage('assets/images/makima.png'),
               radius: 50,
             ),
             IconButton(
-              icon: Icon(Icons.camera),
+              icon: const Icon(Icons.camera),
               onPressed: pickImage,
             ),
             TextField(
               controller: firstNameController,
-              decoration: InputDecoration(labelText: 'First Name'),
+              decoration: const InputDecoration(labelText: 'First Name'),
             ),
             TextField(
               controller: lastNameController,
-              decoration: InputDecoration(labelText: 'Last Name'),
+              decoration: const InputDecoration(labelText: 'Last Name'),
             ),
             TextField(
               controller: nidNumberController,
-              decoration: InputDecoration(labelText: 'NID Number'),
+              decoration: const InputDecoration(labelText: 'NID Number'),
             ),
             TextField(
               controller: occupationController,
-              decoration: InputDecoration(labelText: 'Occupation'),
+              decoration: const InputDecoration(labelText: 'Occupation'),
             ),
             ElevatedButton(
-              child: Text('Update'),
+              child: const Text('Update'),
               onPressed: () {
                 // Update the user profile here
               },

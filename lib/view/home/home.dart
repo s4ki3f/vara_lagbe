@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:vara_lagbe/view/details/widgets/post_ad.dart';
 import 'package:vara_lagbe/view/home/widgets/best_offer.dart';
 import 'widgets/custom_bottom_navbar.dart';
 import 'widgets/recomended_house.dart';
 import 'widgets/catagories.dart';
 import 'widgets/custom_app_bar.dart';
 import 'widgets/welcome_text.dart';
-
 import 'widgets/search_input.dart';
 
 class HomePage extends StatelessWidget {
@@ -15,17 +13,17 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
-      appBar: CustomAppBar(),
+      backgroundColor: Theme.of(context).colorScheme.background,
+      appBar: const CustomAppBar(),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            WelcomeText(),
-            SearchInput(),
-            Catagories(),
+            const WelcomeText(),
+            const SearchInput(),
+            const Catagories(),
             RecomendedHouse(),
-            BestOffer(),
+            BestOffer(), // Remove 'const' keyword
           ],
         ),
       ),

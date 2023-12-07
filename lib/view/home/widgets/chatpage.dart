@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ChatPage extends StatelessWidget {
   final User user;
 
-  ChatPage({required this.user, required List<User> users});
+  const ChatPage({super.key, required this.user, required List<User> users});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class ChatPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Chat with ${user.name}'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
         ),
         actions: [
@@ -34,7 +34,7 @@ class ChatPage extends StatelessWidget {
                           radius: 10,
                           child: Text(
                             '${user.unreadMessageCount}',
-                            style: TextStyle(fontSize: 12),
+                            style: const TextStyle(fontSize: 12),
                           ),
                         )
                       : null,

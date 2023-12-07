@@ -3,15 +3,17 @@ import 'package:provider/provider.dart';
 import 'package:vara_lagbe/model/theme_changer.dart';
 
 class SettingsScreen extends StatelessWidget {
+  const SettingsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final themeChanger = Provider.of<ThemeChanger>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Settings'),
+        title: const Text('Settings'),
       ),
       body: SwitchListTile(
-        title: Text('Dark Mode'),
+        title: const Text('Dark Mode'),
         value: themeChanger.getTheme() == ThemeData.dark(),
         onChanged: (bool value) {
           themeChanger.setTheme(

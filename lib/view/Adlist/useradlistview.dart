@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class UserAdListView extends StatelessWidget {
+  const UserAdListView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('User Ad List'),
+        title: const Text('User Ad List'),
       ),
       body: ListView.builder(
         itemCount: adList.length,

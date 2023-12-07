@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class PostAdPage extends StatefulWidget {
+  const PostAdPage({super.key});
+
   @override
   // ignore: library_private_types_in_public_api
   _PostAdPageState createState() => _PostAdPageState();
@@ -42,7 +44,7 @@ class _PostAdPageState extends State<PostAdPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Post Ad'),
+        title: const Text('Post Ad'),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -50,10 +52,10 @@ class _PostAdPageState extends State<PostAdPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Owner Details'),
-              SizedBox(height: 16.0),
+              const Text('Owner Details'),
+              const SizedBox(height: 16.0),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'First Name',
                 ),
                 onChanged: (value) {
@@ -62,9 +64,9 @@ class _PostAdPageState extends State<PostAdPage> {
                   });
                 },
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Last Name',
                 ),
                 onChanged: (value) {
@@ -73,9 +75,9 @@ class _PostAdPageState extends State<PostAdPage> {
                   });
                 },
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Contact Number',
                 ),
                 onChanged: (value) {
@@ -84,11 +86,11 @@ class _PostAdPageState extends State<PostAdPage> {
                   });
                 },
               ),
-              SizedBox(height: 32.0),
-              Text('Flat Details'),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 32.0),
+              const Text('Flat Details'),
+              const SizedBox(height: 16.0),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Flat Detail',
                 ),
                 onChanged: (value) {
@@ -97,9 +99,9 @@ class _PostAdPageState extends State<PostAdPage> {
                   });
                 },
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Location',
                 ),
                 onChanged: (value) {
@@ -108,9 +110,9 @@ class _PostAdPageState extends State<PostAdPage> {
                   });
                 },
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Flat Size',
                 ),
                 onChanged: (value) {
@@ -119,9 +121,9 @@ class _PostAdPageState extends State<PostAdPage> {
                   });
                 },
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               InputDecorator(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Room Number',
                 ),
                 child: DropdownButtonHideUnderline(
@@ -147,9 +149,9 @@ class _PostAdPageState extends State<PostAdPage> {
                   ),
                 ),
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Number of Bathrooms',
                 ),
                 onChanged: (value) {
@@ -158,11 +160,11 @@ class _PostAdPageState extends State<PostAdPage> {
                   });
                 },
               ),
-              SizedBox(height: 16.0),
-              Text('Extra Facilities'),
-              SizedBox(height: 8.0),
+              const SizedBox(height: 16.0),
+              const Text('Extra Facilities'),
+              const SizedBox(height: 8.0),
               CheckboxListTile(
-                title: Text('Furnished'),
+                title: const Text('Furnished'),
                 value: isFurnished,
                 onChanged: (value) {
                   setState(() {
@@ -170,9 +172,9 @@ class _PostAdPageState extends State<PostAdPage> {
                   });
                 },
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Rental Price',
                 ),
                 onChanged: (value) {
@@ -181,9 +183,9 @@ class _PostAdPageState extends State<PostAdPage> {
                   });
                 },
               ),
-              SizedBox(height: 8.0),
+              const SizedBox(height: 8.0),
               CheckboxListTile(
-                title: Text('Negotiable Price'),
+                title: const Text('Negotiable Price'),
                 value: isNegotiable,
                 onChanged: (value) {
                   setState(() {
@@ -191,9 +193,9 @@ class _PostAdPageState extends State<PostAdPage> {
                   });
                 },
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Confirmed Price',
                 ),
                 onChanged: (value) {
@@ -202,31 +204,31 @@ class _PostAdPageState extends State<PostAdPage> {
                   });
                 },
               ),
-              SizedBox(height: 32.0),
+              const SizedBox(height: 32.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ElevatedButton(
                     onPressed: getImage,
-                    child: Text('Pick Image'),
+                    child: const Text('Pick Image'),
                   ),
                   ElevatedButton(
                     onPressed: () {
                       // TODO: Implement save functionality
                     },
-                    child: Text('Save'),
+                    child: const Text('Save'),
                   ),
                   ElevatedButton(
                     onPressed: () {
                       // TODO: Implement delete functionality
                     },
-                    child: Text('Delete'),
+                    child: const Text('Delete'),
                   ),
                   ElevatedButton(
                     onPressed: () {
                       // TODO: Implement post functionality
                     },
-                    child: Text('Post'),
+                    child: const Text('Post'),
                   ),
                 ],
               ),
